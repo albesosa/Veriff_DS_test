@@ -1,0 +1,10 @@
+# Ignore Python virtual environment
+.venv/
+
+# Ignore IDE settings
+.idea/
+
+# Ignore macOS system files
+.DS_Store
+
+models/
