@@ -96,7 +96,8 @@ poetry run python -m src.main_video_processing \
 
 ### Important
 To run the above commands, make sure you are in the project root 
-directory where `pyproject.toml` is located.
+directory where `pyproject.toml` is located. Please ensure that the 
+`data` directory contains your video files.
 
 ### 🧠 CLI Arguments:
 | Argument                  | Description                                                          |
