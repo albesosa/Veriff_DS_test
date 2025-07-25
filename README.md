@@ -106,16 +106,22 @@ To calculate metrics like precision, recall, and F1-score for the processed vide
 ```
 python -m src.predict_all_videos_labels --output_data_dir output_data --models_used "yolov3_deeppixbis_sort"
 ```
+the output is saved in `output_data/predicetd_labels.csv`
+
 2- Then calculate metrics based on the predictions vs labels:
 ```
 python src/calculate_metrics.py
 ```
+the output is saved in `output_data/merged_labels.csv`. Metrics will be printed to the console.
 
-## 💾 Output
+
+## 💾 Outputs
 - CSV files will be saved for each video containing per-frame results: face bounding boxes, spoof labels, etc.
+default location is `output_data/`
 - Final label prediction (0 or 1) indicates if more than one real person was detected in the video.
-- CSV with merged results, i.e., video_name, actual_label, predicted_label and models used,  
-will be saved in `output_data/merged_results.csv`.
-- Metrics will be printed to the console
+When running over a single video, the output will be printed to the console.
+When running over all videos, the output will be saved in `output_data/predicted_labels.csv`
+- Metrics will be printed to the console after running the metrics calculation script. 
+A CSV file with merged labels, real labels, and predicted labels will be saved in `output_data/merged_labels.csv`.
 
 
