@@ -3,12 +3,24 @@
 This project provides a complete pipeline for **video-based face spoof detection**, including:
 
 - **Face detection** (YOLOv3 or MediaPipe)
-- **Spoof detection** (DeepPixBiS or CDCN++)
+- **Spoof detection** (DeepPixBiS or CDCN)
 - **Face tracking** (SORT)
 - **Per-frame classification** of real vs fake faces
 - **Final video-level label prediction**: Whether a video shows more than one real face.
 
 ---
+
+## Citation:
+- Central Difference Convolutional Neural Network for Face Anti-Spoofing (CDCN) trained model
+was taken from `https://github.com/lrioxh/CDCN.pytorch. This model was trained 
+on a very particular dataset, so it may not generalize well to other datasets.
+
+- Face Anti-Spoofing using Deep-Pixel-wise-Binary-Supervision (DeepPixBiS) trained model was taken 
+from `https://github.com/Saiyam26/Face-Anti-Spoofing-using-DeePixBiS`. This model was trained 
+on the same dataset as previous one.
+
+- You only look once (YOLO) face detection model was taken from 
+`https://github.com/msprITU/YOLOv3-Face/tree/master`. The model was trained on WIDER FACE dataset.
 
 ## 📁 Project Structure
 ```
@@ -30,6 +42,7 @@ This project provides a complete pipeline for **video-based face spoof detection
 ├── pyproject.toml                      # Poetry dependency and project config
 └── README.md
 ```
+**NOTE**: The data folder is empty by default. You need to add your own video files to it.
 
 ## 🛠 Installation
 This project uses Poetry to manage dependencies.
