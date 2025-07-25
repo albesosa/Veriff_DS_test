@@ -54,8 +54,22 @@ To get started:
    ```
 2. Clone the repository
     ```
-    git clone
+    git clone https://github.com/albesosa/Veriff_DS_test.git
     ```
+3. To download the pretrained models, run:
+   - install `git-lfs` if you don't have it installed:
+    ```
+     sudo apt-get install git-lfs
+    ```
+   - Navigate to the project directory and run:
+    ```
+    git lfs install
+    ```
+   - Then, download the models:
+    ```
+    git lfs pull
+    ```
+   
 3. Install dependencies with Poetry
    ```
    poetry install
@@ -69,13 +83,13 @@ To get started:
 
 ### ✅ Process a Single Video
 ```
-python -m src.main_video_processing \
-    --video_to_process data/veriff6.mp4 \
+poetry run python -m src.main_video_processing \
+    --video_to_process data/veriff1.mp4 \
     --show
 ```
 ### ✅ Process All Videos in a Directory
 ```
-python -m src.main_video_processing \
+poetry run python -m src.main_video_processing \
     --video_to_process all \
     --data_dir data
 ```
@@ -94,7 +108,7 @@ directory where `pyproject.toml` is located.
 | `--face_detector_method`  | Face detection method (`yolov3` or `mediapipe`)                      |
 | `--spoof_detector_method` | Spoof detection model (`deeppixbis`, `cdcnpp`)                       |
 | `--face_tracker_method`   | Face tracker (`sort`)                                                |
-| `--verbose`               | If set, enables verbose logging                                      |
+
 
 
 By default models used are:
@@ -105,7 +119,7 @@ By default models used are:
 If you want to use different models, you can specify them using the CLI arguments.
 Example:
 ```
-python -m src.main_video_processing \
+poetry run python -m src.main_video_processing \
     --video_to_process data/veriff6.mp4 \
     --face_detector_method mediapipe \
     --spoof_detector_method cdcnpp \
@@ -117,13 +131,13 @@ python -m src.main_video_processing \
 To calculate metrics like precision, recall, and F1-score for the processed videos:
 1- First loop over all videos and generate predictions:
 ```
-python -m src.predict_all_videos_labels --output_data_dir output_data --models_used "yolov3_deeppixbis_sort"
+poetry run python -m src.predict_all_videos_labels --output_data_dir output_data --models_used "yolov3_deeppixbis_sort"
 ```
 the output is saved in `output_data/predicetd_labels.csv`
 
 2- Then calculate metrics based on the predictions vs labels:
 ```
-python src/calculate_metrics.py
+poetry run python src/calculate_metrics.py
 ```
 the output is saved in `output_data/merged_labels.csv`. Metrics will be printed to the console.
 

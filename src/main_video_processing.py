@@ -61,7 +61,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     log_level = logging.INFO if args.verbose else logging.CRITICAL
-    logger = setup_logging()
+    logger = setup_logging(log_level)
 
     # Handle "al" or "l" for processing all videos
     if args.video_to_process.lower() == "all":
